@@ -1,5 +1,5 @@
 # The Smart Green House
-DIY IOT Green House Designed for 12volt systems. 
+DIY IOT Green House Designed for 12 volt systems.
 
 ## What
 The smart green house is an IOT Green House Solution that is an automated system designed to run on a 12V system.

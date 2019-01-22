@@ -1,0 +1,33 @@
+{
+  "name": "smart_greenhouse",
+  "version": "0.0.1",
+  "description": "IOT Greenhouse with Node and Arduino",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomicCons/smart_greenhouse.git"
+  },
+  "keywords": [
+    "IOT",
+    "smart",
+    "greenhouse",
+    "arduino",
+    "nodejs"
+  ],
+  "author": "Tim McCracken",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/AtomicCons/smart_greenhouse/issues"
+  },
+  "homepage": "https://github.com/AtomicCons/smart_greenhouse#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "johnny-five": "^1.0.0",
+    "mongoose": "^5.4.5",
+    "serialport": "^7.1.3"
+  }
+}

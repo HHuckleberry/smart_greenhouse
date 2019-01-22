@@ -28,6 +28,7 @@
     "express": "^4.16.4",
     "johnny-five": "^1.0.0",
     "mongoose": "^5.4.5",
+    "nodemon": "^1.18.9",
     "serialport": "^7.1.3"
   }
 }

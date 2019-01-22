@@ -6,14 +6,19 @@ var tempHumSchema = new mongoose.Schema({
     default: Date.now
   },
   temp: {
-    type: Number,
-    required: "Missing Temperature"
+    celcius:{
+      type: Number,
+      required: "Missing getTemp"
+    },
+    fahrenheit: {
+      type: Number,
+    }
   },
   humidity:{
     type: Number,
     required: "Missing humidity"
   }
 })
-var Todo = mongoose.model('tempHum', tempHumSchema);
+var Temphum = mongoose.model('tempHum', tempHumSchema);
 
-module.exports = tempHum;
+module.exports = Temphum;

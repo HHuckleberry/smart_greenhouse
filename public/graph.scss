@@ -1,0 +1,151 @@
+@import "compass/css3";
+
+$pie_width: 200px;
+$pie_height: $pie_width /2;
+$wrapper-bg:  #E8E8E8; //#e0e0e0
+$green: #47CF73; //#00C853
+$red: #FF3C41; //#FF3A00
+$orange: #FCD000; //#FFAB00
+$text-color: #394955;
+$body-bg: #fff;
+$legend-bg: #f0f0f0;
+
+
+
+
+.container{
+  display: inline-block;
+  margin: 30px 20px;
+
+  .label-text{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+}
+.pie-wrapper{
+	position: relative;
+  width:$pie_width;
+  height:$pie_height;
+  overflow:hidden;
+
+  .arc, &:before{
+  content: '';
+  width: $pie_width;
+  height: $pie_height;
+  position: absolute;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  left: 0;
+  box-sizing: border-box;
+  }
+
+  &:before{
+  border: 50px solid $wrapper-bg;
+  border-bottom: none;
+  top: 0;
+  z-index: 1;
+  border-radius: 300px 300px 0 0;
+  }
+
+  .arc{
+  border: 50px solid $green;
+  border-top: none;
+  border-radius: 0 0 300px 300px;
+  top: 100%;
+  z-index: 2;
+
+   &::before{
+      content: "";
+      height:1px;
+      width:5px;
+      position: absolute;
+      top: 0px;
+    }
+  }
+
+  .score{
+    color: $text-color;
+    font-size: 28px;
+    display: block;
+    width: $pie-width;
+    text-align: center;
+    margin-top: ($pie-height/2) + 20;
+  }
+}
+
+@for $i from 1 through 100 {
+  .arc[data-value="#{$i}"]{
+    @include animation(fill 2s);
+    @include transform(rotate(#{$i * 1.8}deg));
+    transition:All 5s ease;
+    border-color: $green;
+
+    &:after{
+      content: '';
+      position: absolute;
+      left:  -40px;
+      top: 5px;
+    }
+
+    &::before{
+      background-color: $green;
+    }
+  }
+}
+@for $i from 1 through 50 {
+  .arc[data-value="#{$i}"]{
+    border-color: $red;
+
+    &::before{
+      background-color: $red;
+    }
+  }
+}
+
+@for $i from 51 through 80 {
+  .arc[data-value="#{$i}"]{
+    border-color: $orange;
+
+    &::before{
+      background-color: $orange;
+    }
+  }
+}
+
+.legend{
+  display: inline-block;
+  width:150px;
+  vertical-align: text-bottom;
+  margin-left:100px;
+  background-color: $legend-bg;
+
+  span{
+    width:20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 10px 0 20px;
+
+    &.green{
+      background-color: $green;
+    }
+    &.orange{
+      background-color: $orange;
+    }
+    &.red{
+      background-color: $red;
+    }
+  }
+}
+
+@include keyframes(fill){
+  0%{@include rotate(0deg);
+    border-color: $red;
+  }
+  50%{@include rotate(180deg);
+  border-color: $green;
+  }
+}

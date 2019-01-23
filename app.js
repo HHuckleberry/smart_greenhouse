@@ -1,10 +1,11 @@
 const express = require('express'),
   bodyParser = require('body-parser'),
+  ejs = require('ejs'),
   five = require('johnny-five'),
   SerialPort = require("serialport").SerialPort,
   board = new five.Board(),
   app = express(),
-  listen = 3006;
+  listen = 3007;
 
   const apiRoute = require('./routes/api');
 

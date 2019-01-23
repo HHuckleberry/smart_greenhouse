@@ -68,7 +68,16 @@ header h2 {
 	text-decoration: line-through;
 	color: #bdc3c7;
 }
+.status{
+	display: flex;
+	justify-content: space-between;
+}
+.status.item{
+	height: 50vh;
+	/* width: 50vw; */
+	text-align: center;
 
+}
 li span {
   float: right;
   color: #c0392b;
@@ -78,4 +87,11 @@ li span {
 
 li span:hover {
   color: #e74c3c
+}
+
+.circle{
+	width:209px;
+	height: 209px;
+	border-radius: 50%;
+	color:red;
 }

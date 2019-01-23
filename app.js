@@ -6,13 +6,14 @@ const express = require('express'),
   app = express(),
   listen = 3006;
 
+  const apiRoute = require('./routes/api');
+
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(express.static(__dirname + '/views'));
   app.use(express.static(__dirname + '/public'));
 
 
-  var apiRoute = require('./routes/api');
   app.use('/api', apiRoute);
 
 board.on("ready", function(){
@@ -25,6 +26,7 @@ board.on("ready", function(){
   app.get('/', function(req, res){
     res.sendFile('index.html');
   })
+
 
 app.listen(listen, function() {
   console.log('Running on ' + listen)

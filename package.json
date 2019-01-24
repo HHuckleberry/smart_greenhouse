@@ -26,6 +26,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "compass-mixins": "^0.12.10",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "johnny-five": "^1.0.0",
     "mongoose": "^5.4.5",

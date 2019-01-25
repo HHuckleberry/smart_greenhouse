@@ -4,6 +4,7 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 	background: #ecf0f1;
+	margin-top: -4em;
 }
 
 /*****************************HEADER STYLES*****************************/
@@ -31,11 +32,78 @@ header h2 {
 }
 /*****************************FORM STYLES*****************************/
 
-.form {
-	width: 800px;
-	margin: 50px auto 20px;
+
+form .flex-container,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
 }
 
+.flex-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flex-container li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-container {
+  padding: 0 8px;
+  justify-content: space-between;
+}
+
+.flex-container > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-container li label,
+.flex-container li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.flex-container > li > label,
+.flex-container li p {
+  flex: 1 0 120px;
+  max-width: 120px;
+}
+
+.flex-container > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+	padding:10px
+}
+
+.flex-container li p {
+  margin: 0;
+}
+
+.flex-container li input:not([type='checkbox']),
+.flex-container li textarea {
+  padding: 15px;
+  border: none;
+}
+
+.flex-container li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: #333;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+}
+
+.flex-inner li {
+  width: 100px;
+}
 #todoInput {
 	width: 100%;
 	height: 60px;

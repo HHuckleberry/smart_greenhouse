@@ -1,0 +1,37 @@
+{
+  "component": {
+    "Acceleromter": [
+      "ADXL335",
+      "ADXL345",
+      "ANALOG",
+      "LIS3DH",
+      "LSM303C",
+      "MMA7361",
+      "MMA8452",
+      "MPU6050"
+    ],
+    "Altimeter": [
+      "BME280",
+      "BMP180",
+      "BMP280",
+      "MPL3115A2",
+      "MS5611"
+    ],
+    "Multi":[
+      "BME280",
+      "BMP180",
+      "BMP280",
+      "DHT11_I2C_NANO_BACKPACK",
+      "DHT21_I2C_NANO_BACKPACK",
+      "DHT22_I2C_NANO_BACKPACK",
+      "HIH6130",
+      "HTU21D",
+      "MPL115A2",
+      "MPL3115A2",
+      "MS5611",
+      "SI7020",
+      "SI7021",
+      "TH02"
+    ]
+  }
+}

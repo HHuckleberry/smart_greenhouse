@@ -9,7 +9,7 @@ const express = require('express'),
 
 const apiRoute = require('./routes/api');
 
-
+let sensors = require('./firmware/sensor-list.json');
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -28,24 +28,37 @@ board.on("ready", function() {
 })
 app.use('/api', apiRoute);
 
+// routes - need to refactor and package
 app.get('/', function(req, res) {
   let obj = {
     subheading: 'Monitoring'
   };
-  res.render('index', {obj: obj});
+  res.render('index', {
+    obj: obj
+  });
 })
 app.get('/settings', function(req, res) {
   let obj = {
     subheading: 'Settings'
   };
-  res.render('settings', {obj:obj});
+  res.render('settings', {
+    obj: obj,
+    sensors: sensors
+  });
 })
 
-app.get('/schedule', function(req, res){
+app.get('/schedule', function(req, res) {
   let obj = {
     subheading: 'Schedule'
   };
-  res.render('settings', {obj:obj});
+  res.render('schedule', {
+    obj: obj
+
+  });
+})
+
+app.get('/sensors', function(req, res){
+  res.send(sensors);
 })
 
 app.listen(listen, function() {

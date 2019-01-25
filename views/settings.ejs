@@ -1,7 +1,50 @@
 <%- include('../partials/head') %>
-  <section class="settings">
+<section class="settings">
+  <form>
+    <div class="form-section-head">
+      <h1>API</h1>
+      <ul class="flex-container">
+        <li>
+          <label for="apiSelect">
+            API
+          </label>
+          <select id="apiSelect">
+            <option value="mailgun">
+              Mailgun
+            </option>
+          </select>
+        </li>
+        <li>
+          <label for="apiKey">
+            Key
+          </label>
+          <input type="name" id="apiKey" />
+        </li>
+      </ul>
+    </div>
 
-  </section>
+    <div class="form-section-head">
+      <h1>Sensor</h1>
+      <ul class="flex-container">
+        <li>
+          <label>
+            Sensor
+          </label>
+          <select id="sensorSelect">
+            <%  for(i in sensors.component.Multi){ %>
+            <option>Mongoose/Config variable</option>
+            <option value='<%=sensors.component.Multi[i] %>'>
+              <%=sensors.component.Multi[i] %>
+            </option>
+            <%}%>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </form>
+</section>
 
-  <%- include('../partials/nav') %>
-  <%- include('../partials/foot') %>
+
+
+<%- include('../partials/nav') %>
+<%- include('../partials/foot') %>

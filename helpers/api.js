@@ -1,4 +1,30 @@
-var db = require('../models');
+var db = require('../models'),
+  mongoose = require('mongoose');
+
+//api status
+exports.getAPI = function(req, res) {
+  if (mongoose.connection.readyState == 1) {
+    fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    obj = {
+      status: "Running",
+      api_routes:{
+      temperature: fullUrl+'/temp',
+      apiKeys: fullUrl+'/keys',
+      waterSchedule: fullUrl+'/schedule'}
+    }
+  } else {
+    obj = {
+      status: "offline",
+      error: {
+        ready_state: mongoose.connection.readyState,
+        why: mongoose.connection.errors
+      }
+    }
+  }
+  res.json(obj)
+}
+
+
 //temp
 exports.getTemp = function(req, res) {
   db.tempHum.find()
@@ -21,7 +47,7 @@ exports.postTemp = function(req, res) {
     })
 }
 
-//api
+//api service
 exports.getKey = function(req, res) {
   db.KeyAPI.find()
     .then(function(key) {

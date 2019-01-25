@@ -4,6 +4,9 @@ var db = require("../../models");
 var helpers = require("../../helpers/api");
 
 router.route('/')
+  .get(helpers.getAPI)
+  
+router.route('/temp')
  .get(helpers.getTemp)
  .post(helpers.postTemp)
 //

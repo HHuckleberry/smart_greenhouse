@@ -1,26 +1,34 @@
 $(document).ready(function(){
-  $.getJSON('/api/todos')
-  .then(addTodos);
-
-  $('#todoInput').keypress(function(event){
-    if(event.which == 13){
-      createTodo()
-    }
-  })
-
-  $('.list').on('click', 'li', function(){
-    console.log(this)
-    updateTodo($(this));
-  })
-  $('.list').on('click', 'span', function(e){
-    e.stopPropagation();
-    deleteTodo($(this).parent())
-  })
+  apiService($('apiSelect'));
+  // $.getJSON('  /api/todos')
+  // .then(addTodos);
+  //
+  // $('#todoInput').keypress(function(event){
+  //   if(event.which == 13){
+  //     createTodo()
+  //   }
+  // })
+  //
+  // $('.list').on('click', 'li', function(){
+  //   console.log(this)
+  //   updateTodo($(this));
+  // })
+  // $('.list').on('click', 'span', function(e){
+  //   e.stopPropagation();
+  //   deleteTodo($(this).parent())
+  // })
 
 
 
 })
+function apiService(){
+  $('#settingsForm').on("change", '#apiSelect', function(){
+    var serviceItem = $("#apiSelect").val();
+    console.log(serviceItem);
 
+  })
+
+}
 
 function addTodos(items){
   items.forEach(function(item){

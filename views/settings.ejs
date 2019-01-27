@@ -1,6 +1,6 @@
 <%- include('../partials/head') %>
 <section class="settings">
-  <form>
+  <form id="settingsForm">
     <div class="form-section-head">
       <h1>API</h1>
       <ul class="flex-container">
@@ -9,10 +9,14 @@
             API
           </label>
           <select id="apiSelect">
+            <option>Please Select a Service from the dropdown</option>
             <option value="mailgun">
               Mailgun
             </option>
           </select>
+          <label for="apiDomain">
+
+          </label>
         </li>
         <li>
           <label for="apiKey">
@@ -31,8 +35,8 @@
             Sensor
           </label>
           <select id="sensorSelect">
+              <option>Mongoose/Config variable</option>
             <%  for(i in sensors.component.Multi){ %>
-            <option>Mongoose/Config variable</option>
             <option value='<%=sensors.component.Multi[i] %>'>
               <%=sensors.component.Multi[i] %>
             </option>

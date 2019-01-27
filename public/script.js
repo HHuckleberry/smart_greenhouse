@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  apiService($('apiSelect'));
+  apiService();
   // $.getJSON('  /api/todos')
   // .then(addTodos);
   //
@@ -22,12 +22,18 @@ $(document).ready(function(){
 
 })
 function apiService(){
+
   $('#settingsForm').on("change", '#apiSelect', function(){
     var serviceItem = $("#apiSelect").val();
     console.log(serviceItem);
+    $.getJSON('/api/temp')
+      .then(serviceResponse)
 
   })
 
+}
+function serviceResponse(item){
+  console.log(item)
 }
 
 function addTodos(items){

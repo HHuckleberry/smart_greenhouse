@@ -9,21 +9,24 @@
             API
           </label>
           <select id="apiSelect">
-            <option>Please Select a Service from the dropdown</option>
+            <option value="noValue">Please Select a Service from the dropdown</option>
             <option value="mailgun">
               Mailgun
             </option>
           </select>
-          <label for="apiDomain">
-
-          </label>
-        </li>
+          </li>
         <li>
           <label for="apiKey">
             Key
           </label>
-          <input type="name" id="apiKey" />
+          <input type="name" id="apiKey" disabled />
         </li>
+        <li>
+        <label for="apiDomain">
+          Domain
+        </label>
+        <input type="text" id="apiDomain" disabled />
+      </li>
       </ul>
     </div>
 

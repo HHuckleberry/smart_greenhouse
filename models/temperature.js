@@ -1,11 +1,15 @@
 var mongoose = require('mongoose');
 
-var tempHumSchema = new mongoose.Schema({
+var environmentSchema = new mongoose.Schema({
+  user_id: {
+    type: String,
+    required: "user_id is required to store data"
+  },
   date: {
     type: Date,
     default: Date.now
   },
-  temp: {
+  temperature: {
       type: Number,
       required: "Missing getTemp"
   },
@@ -14,6 +18,6 @@ var tempHumSchema = new mongoose.Schema({
     required: "Missing humidity"
   }
 })
-var Temphum = mongoose.model('tempHum', tempHumSchema);
+var Environment = mongoose.model('Environment', environmentSchema);
 
-module.exports = Temphum;
+module.exports = Environment;

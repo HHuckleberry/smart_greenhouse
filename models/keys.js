@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var KeyAPISchema = new mongoose.Schema({
+  user_id:{
+    type: Number,
+    required: "UserId is needed to save data"
+  },
   api_key: {
     type: String,
     required: "Valid API Key required."
@@ -13,6 +17,6 @@ var KeyAPISchema = new mongoose.Schema({
     required: "Service is required."
   }
 })
-var KeyAPI = mongoose.model('KeyAPI', KeyAPISchema);
+var Keys = mongoose.model('Keys', KeyAPISchema);
 
-module.exports = KeyAPI;
+module.exports = Keys;

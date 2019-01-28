@@ -5,18 +5,20 @@ var helpers = require("../../helpers/api");
 
 router.route('/')
   .get(helpers.getAPI)
-  
-router.route('/temp')
- .get(helpers.getTemp)
- .post(helpers.postTemp)
+router.route('/users')
+  .get(helpers.getUsers)
+  .post(helpers.postUsers)
+router.route('/environment')
+ .get(helpers.getEnvironment)
+ .post(helpers.postEnvironment)
 //
 router.route('/keys')
   .get(helpers.getKey)
   .post(helpers.postKey)
 
   router.route('/schedule')
-    .get(helpers.getwaterSchedule)
-    .post(helpers.postwaterSchedule)
+    .get(helpers.getSchedule)
+    .post(helpers.postSchedule)
 // router.route('/:todoId')
 //   .get(helpers.getTodo)
 //   .put(helpers.updateTodo)

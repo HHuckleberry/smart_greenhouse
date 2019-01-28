@@ -26,8 +26,19 @@ function apiService(){
   $('#settingsForm').on("change", '#apiSelect', function(){
     var serviceItem = $("#apiSelect").val();
     console.log(serviceItem);
-    $.getJSON('/api/temp')
-      .then(serviceResponse)
+
+    if(serviceItem == 'mailgun'){
+      $('#apiKey').attr({'disabled': false, 'innerText':''});
+      $('#apiDomain').attr('disabled', false);
+      $.getJSON('/api/keys')
+        .then(serviceResponse);
+
+    } else if(serviceItem == 'noValue'){
+      $('#apiKey').attr({'disabled': true});
+      $('#apiKey').val('');
+      $('#apiDomain').attr('disabled', true);
+      $('#apiDomain').val('');
+    }
 
   })
 

@@ -8,9 +8,9 @@ exports.getAPI = function(req, res) {
     obj = {
       status: "Running",
       api_routes:{
-      temperature: fullUrl+'/temp',
-      apiKeys: fullUrl+'/keys',
-      waterSchedule: fullUrl+'/schedule'}
+      environment: fullUrl+'/environment',
+      keys: fullUrl+'/keys',
+      schedule: fullUrl+'/schedule'}
     }
   } else {
     obj = {
@@ -24,10 +24,9 @@ exports.getAPI = function(req, res) {
   res.json(obj)
 }
 
-
-//temp
-exports.getTemp = function(req, res) {
-  db.tempHum.find()
+//user
+exports.getUsers = function(req, res) {
+  db.Users.find()
     .then(function(temp) {
       res.json(temp);
     })
@@ -36,8 +35,28 @@ exports.getTemp = function(req, res) {
     })
 }
 
-exports.postTemp = function(req, res) {
-  db.tempHum.create(req.body)
+exports.postUsers = function(req, res) {
+  db.Users.create()
+    .then(function(data) {
+      res.status(201).json(data);
+    })
+    .catch(function(err) {
+      res.send(err);
+    })
+}
+//temp
+exports.getEnvironment = function(req, res) {
+  db.Environment.find()
+    .then(function(temp) {
+      res.json(temp);
+    })
+    .catch(function(err) {
+      res.send(err);
+    })
+}
+
+exports.postEnvironment = function(req, res) {
+  db.Environment.create(req.body)
   console.log(req.body)
     .then(function(newTemp) {
       res.status(201).json(newTemp);
@@ -49,7 +68,7 @@ exports.postTemp = function(req, res) {
 
 //api service
 exports.getKey = function(req, res) {
-  db.KeyAPI.find()
+  db.Keys.find()
     .then(function(key) {
       res.json(key);
     })
@@ -59,7 +78,7 @@ exports.getKey = function(req, res) {
 }
 
 exports.postKey = function(req, res) {
-  db.KeyAPI.create(req.body)
+  db.Keys.create(req.body)
   console.log(req.body)
     .then(function(newKey) {
       res.status(201).json(newKey);
@@ -70,8 +89,8 @@ exports.postKey = function(req, res) {
 }
 
 //schedule
-exports.getwaterSchedule = function(req, res) {
-  db.waterSchedule.find()
+exports.getSchedule = function(req, res) {
+  db.Schedule.find()
     .then(function(data) {
       res.json(data);
     })
@@ -80,8 +99,8 @@ exports.getwaterSchedule = function(req, res) {
     })
 }
 
-exports.postwaterSchedule = function(req, res) {
-  db.waterSchedule.create(req.body)
+exports.postSchedule = function(req, res) {
+  db.Schedule.create(req.body)
   console.log(req.body)
     .then(function(createSchedule) {
       res.status(201).json(createSchedule);

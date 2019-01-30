@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+      uniqueValidator = require('mongoose-unique-validator');
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/greenhouse', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/greenhouse', {useNewUrlParser: true, useCreateIndex: true});
 
 mongoose.Promise = Promise;
 

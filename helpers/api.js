@@ -36,8 +36,9 @@ exports.getUsers = function(req, res) {
 }
 
 exports.postUsers = function(req, res) {
-  db.Users.create()
+  db.Users.create(req.body)
     .then(function(data) {
+      console.log(res);
       res.status(201).json(data);
     })
     .catch(function(err) {

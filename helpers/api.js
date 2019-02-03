@@ -57,10 +57,16 @@ exports.getEnvironment = function(req, res) {
 }
 
 exports.postEnvironment = function(req, res) {
-  db.Environment.create(req.body)
-  console.log(req.body)
-    .then(function(newTemp) {
-      res.status(201).json(newTemp);
+  db.Environment.create({
+    user_id: req.body.user_id,
+    temperature:{
+      celsius: req.body.celsius,
+      fahrenheit: req.body.fahrenheit,
+      kelvin: req.body.kelvin
+    },
+    humidity: req.body.humidity
+  }).then(function(data) {
+      res.status(201);
     })
     .catch(function(err) {
       res.send(err);

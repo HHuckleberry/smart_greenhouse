@@ -10,12 +10,12 @@ var environmentSchema = new mongoose.Schema({
     default: Date.now
   },
   temperature: {
-      type: Number,
-      required: "Missing getTemp"
+    celsius: Number,
+    fahrenheit: Number,
+    kelvin: Number,
   },
   humidity:{
-    type: Number,
-    required: "Missing humidity"
+    type: Number
   }
 })
 var Environment = mongoose.model('Environment', environmentSchema);
